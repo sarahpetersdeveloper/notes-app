@@ -114,7 +114,7 @@
         let p = noteClone.querySelector("p");
         p.addEventListener("blur", function() {
           console.log("Im here");
-          addNote(texting.TextContent);
+          addNote(this.textContent);
         });
 
         let row = document.querySelector(".row");
