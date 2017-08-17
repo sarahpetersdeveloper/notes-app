@@ -31,8 +31,8 @@
     </div>
   </section>
 
-  <div style="display: none;">
-    <div class="note" id="noteCloner">
+  <div style="display: none;" id="noteCloner">
+    <div class="note"  data-note-id="">
       <div class="note-header">
         <h5 class="modal-title">Note</h5>
       </div>
@@ -80,7 +80,7 @@
 
           for(var x = 0; x < notes.length; x++)
           {
-            makeANote(notes[x].note);
+            makeANote(notes[x].note, notes[x]._id);
           }
         }
         gReq.send(null);
@@ -109,7 +109,7 @@
 
       let addNoteButton = document.querySelector(".btn-primary");
       addNoteButton.addEventListener("click", function() {
-        let noteOrignal = document.querySelector("#noteCloner");
+        let noteOrignal = document.querySelector("#noteCloner").firstElementChild;
         let noteClone = noteOrignal.cloneNode(true);
         let p = noteClone.querySelector("p");
         p.addEventListener("blur", function() {
@@ -123,10 +123,11 @@
 
       });
 
-      function makeANote(contentIn)
+      function makeANote(contentIn, id)
       {
         let noteOrignal = document.querySelector("#noteCloner");
         let noteClone = noteOrignal.cloneNode(true);
+        noteClone.dataset.noteId = id;
         let content = noteClone.querySelector("p");
         content.textContent = contentIn;
         //need to add event for updating
