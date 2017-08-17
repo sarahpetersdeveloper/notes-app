@@ -105,7 +105,7 @@
         };
         oReq.onload = function()
         {
-          noteNode.dataset.noteId = JSON.parse(this.textContent)._id;
+          noteNode.dataset.noteId = JSON.parse(this.responseText)._id;
         }
         let payload = JSON.stringify(noteObject);
         oReq.send(payload);
