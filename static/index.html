@@ -95,7 +95,7 @@
       });
 
 
-      function addNote(note) {
+      function addNote(note, noteNode) {
         let oReq = new XMLHttpRequest();
         oReq.open("POST", "/api/notes");
         oReq.setRequestHeader("Content-Type", "application/json");
@@ -103,6 +103,10 @@
         let noteObject = {
           note: note
         };
+        oReq.onload = function()
+        {
+          noteNode.dataset.noteId = JSON.parse(this.textContent)._id;
+        }
         let payload = JSON.stringify(noteObject);
         oReq.send(payload);
       }
@@ -114,7 +118,7 @@
         let p = noteClone.querySelector("p");
         p.addEventListener("blur", function() {
           console.log("Im here");
-          addNote(this.textContent);
+          addNote(this.textContent, noteClone);
         });
 
         let row = document.querySelector(".row");
