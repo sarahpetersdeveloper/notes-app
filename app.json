@@ -1,0 +1,8 @@
+{
+  "name": "notes-app",
+  "description": "Community note project, let's save trees.",
+  "repository": "https://github.com/sarahpetersdeveloper/node-js-demo",
+  "logo": 
+"https://rawgit.com/kilavagora/node-js-demo/master/static/JavaScript.svg",
+  "keywords": ["notes", "paper", "sharing"]
+}
