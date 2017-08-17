@@ -1,118 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
-    <title>Sticky Notes</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <link rel="stylesheet" 
-href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" 
-integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" 
-crossorigin="anonymous">
-    <link 
-href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
-rel="stylesheet" 
-integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" 
-crossorigin="anonymous">
-    <link href="main.css" rel="stylesheet">
-  </head>
+  <title>Sticky Notes</title>
 
-  <body>
-    <div class="navbar navbar-inverse bg-inverse">
-      <div class="container d-flex justify-content-between">
-        <a href="#" class="navbar-brand">Sticky Notes</a>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link href="main.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="navbar navbar-inverse bg-inverse">
+    <div class="container d-flex justify-content-between">
+      <a href="#" class="navbar-brand">Sticky Notes</a>
+    </div>
+  </div>
+
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">CivicPlus JavaScript Class Notes!</h1>
+      <p class="lead text-muted">Saving the world one tree at a time!</p>
+      <p>
+        <a href="#" class="btn btn-primary">Add a note</a>
+      </p>
+    </div>
+  </section>
+
+  <div style="display: none;">
+    <div class="note" id="noteCloner">
+      <div class="note-header">
+        <h5 class="modal-title">Note</h5>
+      </div>
+      <div class="note-body">
+        <p class="note-text" contenteditable="true" id="myText">Note text</p>
+      </div>
+      <div class="note-footer">
+        <button type="button" class="close" aria-label="Delete">
+                <span aria-hidden="true" class="fa fa-trash-o text-danger"></span>
+            </button>
       </div>
     </div>
+  </div>
 
-    <section class="jumbotron text-center">
-      <div class="container">
-        <h1 class="jumbotron-heading">Sticky Notes</h1>
-        <p class="lead text-muted">Simply add a note and save rainforests!</p>
-        <p>
-          <a href="#" class="btn btn-primary">Add a note</a>
-        </p>
-      </div>
-    </section>
+  <div class="board text-muted">
+    <div class="container">
 
-    <div class="board text-muted">
-      <div class="container">
-
-        <div class="row">
-          <div class="note">
-            <div class="note-header">
-                <h5 class="modal-title">Sticky note 1.</h5>
-            </div>
-            <div class="note-body">
-                <p class="note-text" contenteditable="true">Lorem ipsum dolor sit amet, 
-consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna 
-aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
-ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse 
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-            <div class="note-footer">
-                <button type="button" class="close" aria-label="Delete">
-                    <span aria-hidden="true" class="fa fa-trash-o text-danger"></span>
-                </button>            
-            </div>
+      <div class="row">
+        <div class="note">
+          <div class="note-header">
+            <h5 class="modal-title">Sticky note 1.</h5>
           </div>
-          <div class="note">
-            <div class="note-header">
-                <h5 class="modal-title">Sticky note 2.</h5>
-            </div>
-            <div class="note-body">
-                <p class="note-text" contenteditable="true">Lorem ipsum dolor sit amet, 
-consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna 
-aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
-ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse 
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-            <div class="note-footer">
-                <button type="button" class="close" aria-label="Delete">
-                    <span aria-hidden="true" class="fa fa-trash-o text-danger"></span>
-                </button>            
-            </div>
+          <div class="note-body">
+            <p class="note-text" contenteditable="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+              irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           </div>
-          <div class="note">
-            <div class="note-header">
-                <h5 class="modal-title">Sticky note 3.</h5>
-            </div>
-            <div class="note-body">
-                <p class="note-text" contenteditable="true">Lorem ipsum dolor sit amet, 
-consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna 
-aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
-ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse 
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-            <div class="note-footer">
-                <button type="button" class="close" aria-label="Delete">
+          <div class="note-footer">
+            <button type="button" class="close" aria-label="Delete">
                     <span aria-hidden="true" class="fa fa-trash-o text-danger"></span>
-                </button>            
-            </div>
+                </button>
           </div>
         </div>
 
+
       </div>
+
     </div>
+  </div>
 
-    <footer class="text-muted">
-      <div class="container">
-        <p class="float-right">
-          <a href="#">Back to top</a>
-        </p>
-        <p>&copy; Salvum Ligna Inc.</p>
-      </div>
-    </footer>
-    <script>
-      (function () {
-        
-      })();
-    </script>
-  </body>
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Back to top</a>
+      </p>
+      <p>&copy; Salvum Ligna Inc.</p>
+    </div>
+  </footer>
+  <script>
+    (function() {
+
+      loadNotes();
+
+
+      function loadNotes()
+      {
+        let gReq = new XMLHttpRequest();
+        gReq.open("GET", "http://notesdemo.herokuapp.com/api/notes");
+        gReq.setRequestHeader("Content-Type", "application/json");
+        gReq.onLoad = function(){
+          let notes = JSON.parse(this.responseText);
+
+          for(var x = 0; x < notes.length; x++)
+          {
+            makeANote(notes[x].note);
+          }
+        }
+        gReq.send(null);
+      }
+
+
+
+      let newText = document.querySelector("#myText");
+      newText.addEventListener("blur", function() {
+        console.log("Im here");
+        addNote(newText.TextContent);
+      });
+
+
+      function addNote(note) {
+        let oReq = new XMLHttpRequest();
+        oReq.open("POST", "http://notesdemo.herokuapp.com/api/notes");
+        oReq.setRequestHeader("Content-Type", "application/json");
+
+        let noteObject = {
+          note: note
+        };
+        let payload = JSON.stringify(noteObject);
+        oReq.send(payload);
+      }
+
+      let addNoteButton = document.querySelector(".btn-primary");
+      addNoteButton.addEventListener("click", function() {
+        let noteOrignal = document.querySelector("#noteCloner");
+        let noteClone = noteOrignal.cloneNode(true);
+        let p = noteClone.querySelector("p");
+        p.addEventListener("blur", function() {
+          console.log("Im here");
+          addNote(texting.TextContent);
+        });
+
+        let row = document.querySelector(".row");
+        row.append(noteClone);
+
+
+      });
+
+      function makeANote(contentIn)
+      {
+        let noteOrignal = document.querySelector("#noteCloner");
+        let noteClone = noteOrignal.cloneNode(true);
+        let content = noteClone.querySelector("p");
+        content.TextContent = contentIn;
+        //need to add event for updating
+        let row = document.querySelector(".row");
+        row.append(noteClone);
+
+      }
+
+//JSON.parse / to put into objects
+//xhr.open("DELETE", "api/notes/59937a630d3e8c001110a85f")
+// put is to update
+
+
+
+
+    })();
+  </script>
+</body>
+
 </html>
-
