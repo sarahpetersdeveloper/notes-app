@@ -83,24 +83,24 @@
   <script>
     (function() {
 
-  //    loadNotes();
+      loadNotes();
 
 
-//      function loadNotes()
-  //    {
-//        let gReq = new XMLHttpRequest();
-//        gReq.open("GET", "http://notesdemo.herokuapp.com/api/notes");
-//        gReq.setRequestHeader("Content-Type", "application/json");
-//        gReq.onLoad = function(){
-//          let notes = JSON.parse(this.responseText);
+      function loadNotes()
+      {
+        let gReq = new XMLHttpRequest();
+        gReq.open("GET", "/api/notes");
+        gReq.setRequestHeader("Content-Type", "application/json");
+        gReq.onLoad = function(){
+          let notes = JSON.parse(this.responseText);
 
-//          for(var x = 0; x < notes.length; x++)
-//          {
-//            makeANote(notes[x].note);
-//          }
-//        }
-//        gReq.send(null);
-//      }
+          for(var x = 0; x < notes.length; x++)
+          {
+            makeANote(notes[x].note);
+          }
+        }
+        gReq.send(null);
+      }
 
 
 
@@ -113,7 +113,7 @@
 
       function addNote(note) {
         let oReq = new XMLHttpRequest();
-        oReq.open("POST", "http://notesdemo.herokuapp.com/api/notes");
+        oReq.open("POST", "/api/notes");
         oReq.setRequestHeader("Content-Type", "application/json");
 
         let noteObject = {
