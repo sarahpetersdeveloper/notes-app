@@ -125,7 +125,7 @@
 
       function makeANote(contentIn, id)
       {
-        let noteOrignal = document.querySelector("#noteCloner");
+        let noteOrignal = document.querySelector("#noteCloner").firstElementChild;
         let noteClone = noteOrignal.cloneNode(true);
         noteClone.dataset.noteId = id;
         let content = noteClone.querySelector("p");
