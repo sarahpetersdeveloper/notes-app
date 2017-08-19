@@ -145,7 +145,7 @@
 
       function deleteNote()
       {
-        let noteToDelete = event.srcElement;
+        let noteToDelete = event.srcElement.parentElement.parentElement;
         fetchSite("DELETE", noteToDelete.dataset.noteId, null, null);
         noteToDelete.parentElement.remove(noteToDelete);
       }
