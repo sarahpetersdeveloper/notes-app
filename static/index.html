@@ -70,19 +70,7 @@
       loadNotes();
 
 
-      function loadNotes() {
-        let gReq = new XMLHttpRequest();
-        gReq.open("GET", "/api/notes");
-        gReq.setRequestHeader("Content-Type", "application/json");
-        gReq.onload = function() {
-          let notes = JSON.parse(this.responseText);
 
-          for (var x = 0; x < notes.length; x++) {
-            makeANote(notes[x].note, notes[x]._id);
-          }
-        }
-        gReq.send(null);
-      }
 
 
 
@@ -144,6 +132,15 @@
         let row = document.querySelector(".row");
         row.append(noteClone);
 
+      }
+
+      fetchSite("GET", null, loadNotes, null);
+
+      function loadNotes() {
+        let notes = JSON.parse(this.responseText);
+        for (var x = 0; x < notes.length; x++) {
+          makeANote(notes[x].note, notes[x]._id);
+        }
       }
 
       function updateNote(newText, noteid) {
