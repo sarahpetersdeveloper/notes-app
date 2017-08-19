@@ -148,7 +148,7 @@
         let noteToDelete = event.srcElement.parentElement.parentElement.parentElement;
         console.log(noteToDelete);
         fetchSite("DELETE", noteToDelete.dataset.noteId, null, null);
-        noteToDelete.parentElement.remove(noteToDelete);
+        noteToDelete.remove(noteToDelete);
       }
 
       function fetchSite(method, noteid, callback, payload)
@@ -165,6 +165,8 @@
         oReq.send(payload);
       }
 
+
+//'div[data-note-id="59979ef7f4578f0011da801d"]'
       //add note "POST", create
       //update note "PUT", update
       //delete note "DELETE", delete
