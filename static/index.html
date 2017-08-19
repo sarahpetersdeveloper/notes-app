@@ -134,11 +134,49 @@
         noteClone.dataset.noteId = id;
         let content = noteClone.querySelector("p");
         content.textContent = contentIn;
+
+        let deleteIcon = document.querySelectorAll("[aria-label='Delete']");
+        deleteIcon.addEventListener("click", deleteNote(id, noteClone));
         //need to add event for updating
         let row = document.querySelector(".row");
         row.append(noteClone);
 
       }
+
+      function deleteNote(id, node)
+      {
+        fetchSite("DELETE", id, null, null);
+        node.parentElement.remove(node);
+      }
+
+      function fetchSite(method, noteid, callback, payload)
+      {
+        let oReq = new XMLHttpRequest();
+        oReq.open(method, "/api/notes/" + noteid);
+        oReq.setRequestHeader("Content-Type", "application/json");
+
+        oReq.onload = function()
+        {
+          callback;
+        }
+
+        oReq.send(payload);
+      }
+
+      //add note "POST", create
+      //update note "PUT", update
+      //delete note "DELETE", delete
+      //read notes "GET", read
+//when you load notes you should probably add event listerners add update and DELETE
+
+//method GET (loading all - read), PUT (for update), DELETE, POST (ADD), callback,
+//fetchsite(method, callback, payload)
+//{
+//oreq = onload = calback;
+//}
+
+// fetch() catch api something fancy
+
 
 //JSON.parse / to put into objects
 //xhr.open("DELETE", "api/notes/59937a630d3e8c001110a85f")
