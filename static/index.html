@@ -136,17 +136,17 @@
         content.textContent = contentIn;
 
         let deleteIcon = document.querySelectorAll("[aria-label='Delete']");
-        deleteIcon.addEventListener("click", deleteNote(id, noteClone));
+        deleteIcon.addEventListener("click", deleteNote(id));
         //need to add event for updating
         let row = document.querySelector(".row");
         row.append(noteClone);
 
       }
 
-      function deleteNote(id, node)
+      function deleteNote(id)
       {
         fetchSite("DELETE", id, null, null);
-        node.parentElement.remove(node);
+        event.srcElement.parentElement.remove(event.srcElement);
       }
 
       function fetchSite(method, noteid, callback, payload)
