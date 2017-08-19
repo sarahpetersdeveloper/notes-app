@@ -151,13 +151,11 @@
           note: newText
         };
         let payload = JSON.stringify(noteObject);
-        fetchSite(PUT, noteid, null, payload);
+        fetchSite("PUT", noteid, null, payload);
       }
 
       function deleteNote() {
-        console.log(event.srcElement);
         let noteToDelete = event.srcElement.parentElement.parentElement.parentElement;
-        console.log(noteToDelete);
         fetchSite("DELETE", noteToDelete.dataset.noteId, null, null);
         noteToDelete.remove(noteToDelete);
       }
