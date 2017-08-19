@@ -135,7 +135,7 @@
         let content = noteClone.querySelector("p");
         content.textContent = contentIn;
 
-        let deleteIcon = document.querySelectorAll("[aria-label='Delete']");
+        let deleteIcon = noteClone.querySelector("[aria-label='Delete']");
         deleteIcon.addEventListener("click", function(){deleteNote();});
         //need to add event for updating
         let row = document.querySelector(".row");
