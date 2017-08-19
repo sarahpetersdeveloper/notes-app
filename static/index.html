@@ -67,20 +67,6 @@
   <script>
     (function() {
 
-      loadNotes();
-
-
-
-
-
-
-      let newText = document.querySelector("#myText");
-      newText.addEventListener("blur", function() {
-        console.log("Im here");
-        addNote(newText.TextContent);
-      });
-
-
       function addNote(note, noteNode) {
         let oReq = new XMLHttpRequest();
         oReq.open("POST", "/api/notes");
@@ -168,31 +154,7 @@
 
         oReq.send(payload);
       }
-
-
-      //'div[data-note-id="59979ef7f4578f0011da801d"]'
-      //add note "POST", create
-      //update note "PUT", update
-      //delete note "DELETE", delete
-      //read notes "GET", read
-      //when you load notes you should probably add event listerners add update and DELETE
-
-      //method GET (loading all - read), PUT (for update), DELETE, POST (ADD), callback,
-      //fetchsite(method, callback, payload)
-      //{
-      //oreq = onload = calback;
-      //}
-
-      // fetch() catch api something fancy
-
-
-      //JSON.parse / to put into objects
-      //xhr.open("DELETE", "api/notes/59937a630d3e8c001110a85f")
-      // put is to update
-
-
-
-
+      
     })();
   </script>
 </body>
