@@ -136,7 +136,7 @@
         content.textContent = contentIn;
 
         let deleteIcon = document.querySelectorAll("[aria-label='Delete']");
-        deleteIcon.addEventListener("click", deleteNote());
+        deleteIcon.addEventListener("click", function(){deleteNote();});
         //need to add event for updating
         let row = document.querySelector(".row");
         row.append(noteClone);
