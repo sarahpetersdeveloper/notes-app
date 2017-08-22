@@ -67,19 +67,8 @@
   <script>
     (function() {
 
-      function addNote(note, noteNode) {
-        let oReq = new XMLHttpRequest();
-        oReq.open("POST", "/api/notes");
-        oReq.setRequestHeader("Content-Type", "application/json");
-
-        let noteObject = {
-          note: note
-        };
-        oReq.onload = function() {
-          noteNode.dataset.noteId = JSON.parse(this.responseText)._id;
-        }
-        let payload = JSON.stringify(noteObject);
-        oReq.send(payload);
+      function addNote(noteNode, request) {
+          noteNode.dataset.noteId = JSON.parse(request.responseText)._id;
       }
 
       let addNoteButton = document.querySelector(".btn-primary");
@@ -88,6 +77,11 @@
         let noteClone = noteOrignal.cloneNode(true);
         let p = noteClone.querySelector("p");
         p.addEventListener("blur", function() {
+          let noteObject = {
+            note: this.textContent
+          };
+          let payload = JSON.stringify(noteObject);
+          fetchSite("POST", "", addNote, payload, noteNode);
           addNote(this.textContent, noteClone);
         });
 
@@ -128,30 +122,29 @@
         }
       }
 
-      fetchSite("GET", "", loadNotes, null);
+      fetchSite("GET", "", loadNotes, null, null);
 
       function updateNote(newText, noteid) {
         let noteObject = {
           note: newText
         };
         let payload = JSON.stringify(noteObject);
-        fetchSite("PUT", noteid, null, payload);
+        fetchSite("PUT", noteid, null, payload, null);
       }
 
       function deleteNote() {
         let noteToDelete = event.srcElement.parentElement.parentElement.parentElement;
-        fetchSite("DELETE", noteToDelete.dataset.noteId, null, null);
+        fetchSite("DELETE", noteToDelete.dataset.noteId, null, null, null);
         noteToDelete.remove(noteToDelete);
       }
 
-      function fetchSite(method, noteid, callback, payload) {
+      function fetchSite(method, noteid, callback, payload, noteNode) {
         let oReq = new XMLHttpRequest();
         oReq.open(method, "/api/notes/" + noteid);
         oReq.setRequestHeader("Content-Type", "application/json");
 
         oReq.onload = function() {
-          if(callback != null) { callback(this); }
-    //sarah
+          if(callback != null) { callback(this, noteNode); }
         }
 
         oReq.send(payload);
