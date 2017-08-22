@@ -88,7 +88,6 @@
         let noteClone = noteOrignal.cloneNode(true);
         let p = noteClone.querySelector("p");
         p.addEventListener("blur", function() {
-          console.log("Im here");
           addNote(this.textContent, noteClone);
         });
 
@@ -151,7 +150,8 @@
         oReq.setRequestHeader("Content-Type", "application/json");
 
         oReq.onload = function() {
-          callback(this);
+          if(callback != null) { callback(this); }
+    //sarah
         }
 
         oReq.send(payload);
