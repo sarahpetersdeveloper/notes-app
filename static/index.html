@@ -81,7 +81,7 @@
             note: this.textContent
           };
           let payload = JSON.stringify(noteObject);
-          fetchSite("POST", "", addNote, payload, noteNode);
+          fetchSite("POST", "", addNote, payload, noteClone);
           addNote(this.textContent, noteClone);
         });
 
