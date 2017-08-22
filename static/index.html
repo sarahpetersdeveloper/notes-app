@@ -67,7 +67,7 @@
   <script>
     (function() {
 
-      function addNote(noteNode, request) {
+      function addNote(request, noteNode) {
           noteNode.dataset.noteId = JSON.parse(request.responseText)._id;
       }
 
